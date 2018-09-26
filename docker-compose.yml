@@ -12,19 +12,14 @@ services:
       python3 backend/manage.py makemigrations &&
       python3 backend/manage.py migrate --no-input &&
       cd backend/ &&
-      gunicorn backend.wsgi -b 0.0.0.0:8000
-      # python3 backend/manage.py runserver 0.0.0.0:8000'
+      gunicorn backend.wsgi -b 0.0.0.0:8000'
     volumes:
       - .:/code
-    # ports:
-    #   - "8000:80"
     depends_on:
       - db
     networks: 
       - nginx_network
       - backend_network
-    
-
   nginx:
     image: nginx:1.13
     build:
