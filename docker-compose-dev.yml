@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: >
+      bash -c '
+      python3 backend/manage.py makemigrations &&
+      python3 backend/manage.py migrate --no-input &&
+      python3 backend/manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

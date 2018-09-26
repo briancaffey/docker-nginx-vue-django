@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    networks: 
+      - backend_network
+  web:
+    build: .
+    command: >
+      bash -c '
+      python3 backend/manage.py makemigrations &&
+      python3 backend/manage.py migrate --no-input &&
+      cd backend/ &&
+      gunicorn backend.wsgi -b 0.0.0.0:8000
+      # python3 backend/manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - .:/code
+    # ports:
+    #   - "8000:80"
+    depends_on:
+      - db
+    networks: 
+      - nginx_network
+      - backend_network
+    
+
+  nginx:
+    image: nginx:1.13
+    build:
+      context: .
+      dockerfile: ./config/nginx/Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - web
+      - db
+    networks: 
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
+  backend_network:
+    driver: bridge
