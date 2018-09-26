@@ -1,26 +1,31 @@
-from django.test import TestCase
+"""
+Unit Tests for Post Models
+"""
 
+from django.contrib.auth.models import User
+from django.test import TestCase
 from django.urls import reverse
 
 from rest_framework import status
 
 from rest_framework_jwt.settings import api_settings
 
-from django.contrib.auth.models import User
 
 # Create your tests here.
 
 class TestPosts(TestCase):
+    """Post Tests"""
 
     def test_get_posts(self):
-
+        """Unauthenticated users can access posts APIListView"""
         url = reverse('posts')
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, status.HTTP_200_OK) #status.HTTP_400_BAD_REQUEST)
 
     def test_header_for_token_verification(self):
-        # https://stackoverflow.com/questions/47576635/django-rest-framework-jwt-unit-test
-
+        """
+        https://stackoverflow.com/questions/47576635/django-rest-framework-jwt-unit-test
+        """
         url = reverse('posts')
         resp = self.client.get(url)
 
@@ -40,9 +45,7 @@ class TestPosts(TestCase):
         credentials = {
             'token': token
         }
-        
+
         print("creds: ", credentials)
         resp = self.client.post(verify_url, credentials, format='json')
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
-
-
