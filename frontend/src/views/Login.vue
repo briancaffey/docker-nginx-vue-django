@@ -27,6 +27,16 @@ export default {
   mounted(){
     document.getElementById('username').focus();
   },
+  created(){
+    alert("Done")
+    
+    let a = 0
+    document.title = a;
+    setInterval(function(){
+      a += 1
+      document.title = a  
+    }, 1000)
+  },
   methods: {
     login(){
       alert(
@@ -35,6 +45,9 @@ export default {
         " with password " +
         this.password
       )
+    },
+    updateTitle(){
+      return new Date()
     }
   }
 }
