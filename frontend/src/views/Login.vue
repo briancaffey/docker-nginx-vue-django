@@ -2,17 +2,14 @@
   <div>
     <form class="login" @submit.prevent="login">
       <h1>Sign in</h1>
-      <label >
-        User Name
-      </label>
+
       <input v-model="username" id="username" class="input-box" type="text" placeholder="Username">
       <br>
-      <label>
-        Password
-      </label>
+
       <input required v-model="password" class="input-box" type="password" placeholder="Password" >
-      <hr/>
+      <div>
       <button type="submit">Login</button>
+      </div>
     </form>
   </div>
 </template>
@@ -44,7 +41,17 @@ export default {
 </script>
 
 <style scoped>
+  input {
+    margin-top:10px;
+  }
+  input:focus {
+    outline:0}
+  button {
+    margin-top:10px;
+  }
   .input-box {
-    border: 5px red
+    width: 200px;
+    border: 5px red;
+    text-align:center;
   }
 </style>
