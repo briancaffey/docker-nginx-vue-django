@@ -8,3 +8,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Document(models.Model):
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    upload = models.FileField()

@@ -140,7 +140,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AWS_ACCESS_KEY_ID = 'AKIAI5DV7AZOPU4V2LFQ'
-AWS_SECRET_ACCESS_KEY = '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'
+STATICFILES_URL = os.path.join(BASE_DIR, 'static')
 
-AWS_STORAGE_BUCKET_NAME = 'briancaffey'
+try:
+    from .settings_sensitive import *
+except ImportError:
+    print("Please enter credentials in settings_sensitive.py")
+
+AWS_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+DEFAULT_FILE_STORAGE = 'backend.storage_backends.MediaStorage'

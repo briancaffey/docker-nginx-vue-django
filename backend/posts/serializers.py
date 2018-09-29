@@ -14,8 +14,22 @@ class PostCreateSerializer(serializers.ModelSerializer):
         fields = ('title', 'content')
         model = models.Post
 
+
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta Class"""
         fields = ('id', 'title', 'content', 'created_at', 'updated_at',)
         model = models.Post
+
+
+
+class DocumentCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('uploaded_at', 'upload',)
+        model = models.Document
+
+
+class DocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('uploaded_at', 'upload')
+        model = models.Document
