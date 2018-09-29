@@ -6,3 +6,6 @@ django-filter
 djangorestframework-jwt
 django-cors-headers
 gunicorn
+
+boto3
+django-storages

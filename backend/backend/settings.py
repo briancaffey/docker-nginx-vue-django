@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'posts',
     'rest_framework',
     'corsheaders',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AWS_ACCESS_KEY_ID = 'AKIAI5DV7AZOPU4V2LFQ'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'briancaffey'
