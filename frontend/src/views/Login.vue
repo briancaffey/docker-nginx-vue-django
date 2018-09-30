@@ -16,41 +16,26 @@
 
 <script>
 export default {
-  name: "Login",
-  data(){
+  name: 'Login',
+  data() {
     return {
-      message: "Hello",
-      username: "",
-      password: "",
-    }
+      message: 'Hello',
+      username: '',
+      password: '',
+    };
   },
-  mounted(){
+  mounted() {
     document.getElementById('username').focus();
   },
-  created(){
-    alert("Done")
-    
-    let a = 0
-    document.title = a;
-    setInterval(function(){
-      a += 1
-      document.title = a  
-    }, 1000)
-  },
   methods: {
-    login(){
-      alert(
-        "Attempting to login " +
-        this.username +
-        " with password " +
-        this.password
-      )
+    login() {
+      return 'OK';
     },
-    updateTitle(){
-      return new Date()
-    }
-  }
-}
+    updateTitle() {
+      return new Date();
+    },
+  },
+};
 </script>
 
 <style scoped>

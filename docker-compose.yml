@@ -21,7 +21,6 @@ services:
       - nginx_network
       - backend_network
   nginx:
-    image: nginx:1.13
     build:
       context: .
       dockerfile: ./config/nginx/Dockerfile

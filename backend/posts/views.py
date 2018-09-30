@@ -3,15 +3,13 @@ Views for Posts
 """
 
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny #, IsAuthenticated
 # from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .models import Post, Document
 from .serializers import (
-    
     PostSerializer,
     PostCreateSerializer,
-
     DocumentCreateSerializer,
     DocumentSerializer
 )
@@ -43,8 +41,8 @@ class DocumentCreate(generics.CreateAPIView):
     permission_classes = (AllowAny,)
 
 
-
 class DocumentListView(generics.ListAPIView):
+    """List View for Documents"""
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     permission_classes = (AllowAny,)
