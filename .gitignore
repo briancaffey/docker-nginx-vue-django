@@ -2,3 +2,5 @@
 .vscode
 .pylintrc
 **.pyc
+backend/backend/__pycache__/*.pyc
+*.pyc
