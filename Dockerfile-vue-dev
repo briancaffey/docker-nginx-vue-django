@@ -1,29 +1,19 @@
 FROM node:9.11.1-alpine
-RUN echo "===1==="
 
-RUN echo "===2==="
 # make the 'app' folder the current working directory
 WORKDIR /app/
 
-RUN echo "===3==="
 # copy both 'package.json' and 'package-lock.json' (if available)
 COPY frontend/package*.json ./
-RUN ls -al && pwd
 
-RUN echo "===4==="
 # install project dependencies
 RUN npm install
-RUN ls -al && pwd
+
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-
-RUN echo "===5==="
 COPY . .
-RUN ls -al && pwd
 
-RUN echo "===6==="
 # build app for production with minification
 WORKDIR /app/frontend
-RUN ls -al && pwd
 
 EXPOSE 8080
 
