@@ -4,3 +4,6 @@
 **.pyc
 backend/backend/__pycache__/*.pyc
 *.pyc
+
+*.key
+*.pem
