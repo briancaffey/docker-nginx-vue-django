@@ -1,6 +1,38 @@
+# Architecture for a containerized web application
+
+## High-level overview
+
+- docker and docker-compose for containerization
+- VueJS (generated with presets from `vue ui`, plus additional packages from `npm`)
+- Django, Django REST Framework, on a Python 3.6 base image
+- JSON Web Tokens for authentication and permission control to Django REST API
+- gunicorn (Python WSGI HTTP Server for UNIX)
+- nginx (for web server and reverse proxy; routes traffic to either DRF API or Vue.js `index.html`)
+- celery workers (for asynchronous task processing)
+- rabbitmq (message broker)
+- redis (for celery results backend)
+- mongodb
+- Node.js (for local dev server with hot reloading)
+- elastic search (ELK stack)
+
+## Local development
+
+Install docker and docker-compose. Run `docker run hello-world` to make sure that docker is running correctly. Don't run docker as root, add yourself to the docker group and reboot, this should fix any permission errors if you have them.
+
+There are two ways to run the app locally: 
+
+```
+docker-compose -f docker-compose-dev.yml up --build
+```
+
+This does not use nginx, and instead uses a `npm run serve` which reacts to saved files and updates the UI for rapid development. The Django app also supports hot reloading. 
+
+**Note**: Currently this will not support subdomains for local development. This might be possible, but for now the only way to support subdomains locally is to use `docker-compose.yml` locally, the second way of doing local development. Unfortunately, you will need to rebuild the docker image since `npm run build` is part of the build process. This can 
+
+
 TODO:
 
-[] figure out why docker is creating .pyc files locally. Ideally, docker will not do this.
+[] figure out why docker is creating .pyc files locally. 
 
 [x] Figure out subdomain routing on localhost
 
