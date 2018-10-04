@@ -48,7 +48,7 @@ services:
     #       cd frontend &&
     #       npm run serve'
     volumes:
-      - ./frontend:/app/frontend
+      - ./frontend:/app/frontend:ro
     ports:
       - "8080:8080"
     networks:
