@@ -13,6 +13,8 @@ services:
       python3 manage.py makemigrations &&
       python3 manage.py migrate --no-input &&
       python3 manage.py runserver 0.0.0.0:8000'
+    env_file:
+      - config/web/web-variables.env
     volumes:
       - .:/code:ro
     ports:
