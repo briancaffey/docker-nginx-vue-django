@@ -859,3 +859,6 @@ https://github.com/MatteoGabriele/vue-analytics
 Django-Docker-Seed
 
 https://github.com/mordaha/django-docker-seed/blob/master/run-in-production.sh
+
+
+## gitlab-ci.yml
