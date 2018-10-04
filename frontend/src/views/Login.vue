@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="login" @submit.prevent="login">
+    <form @submit.prevent="login">
       <h1>Sign in</h1>
 
       <input v-model="username" id="username" class="input-box" type="text" placeholder="Username">
@@ -27,6 +27,11 @@ export default {
   mounted() {
     document.getElementById('username').focus();
   },
+  computed: {
+    buttonCanClick() {
+      return false;
+    }
+  },
   methods: {
     login() {
       return 'OK';
@@ -51,5 +56,7 @@ export default {
     width: 200px;
     border: 5px red;
     text-align:center;
+    background-color: #2c3e50;
+    color: white;
   }
 </style>

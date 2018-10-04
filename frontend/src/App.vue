@@ -3,15 +3,29 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/posts">Posts</router-link> |
-      <router-link to="/login">Login</router-link> |
       <router-link to="/docs">Docs</router-link> |
       <router-link to="/protected">Protected</router-link> |
+      <router-link to="/charts">Charts</router-link> |
+      <router-link to="/login">Login</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style>
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: .5; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
 
 html {
   background: #2c3e50;
