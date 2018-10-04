@@ -1,5 +1,9 @@
 # frontend
 
+## Things to Try
+
+[https://alligator.io/vuejs/file-select-component/](https://alligator.io/vuejs/file-select-component/)
+
 ## Project setup
 ```
 npm install
