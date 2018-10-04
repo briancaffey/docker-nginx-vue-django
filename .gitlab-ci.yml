@@ -10,7 +10,7 @@ services:
   - postgres:latest
 
 variables:
-  POSTGRES_DB: db
+  POSTGRES_DB: postgres
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
