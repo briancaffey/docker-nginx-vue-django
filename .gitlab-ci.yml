@@ -26,8 +26,8 @@ before_script:
   - python -V                                   # Print out python version for debugging
   # Uncomment next line if your Django app needs a JS runtime:
   # - apt-get update -q && apt-get install nodejs -yqq
-  - cd backend
   - pip install -r requirements.txt
+  - cd backend
 
 # To get Django tests to work you may need to create a settings file using
 # the following DATABASES:
