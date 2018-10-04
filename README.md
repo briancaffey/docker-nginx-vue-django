@@ -862,3 +862,9 @@ https://github.com/mordaha/django-docker-seed/blob/master/run-in-production.sh
 
 
 ## gitlab-ci.yml
+
+To trigger GitLab's CI/CD when we push code to GitLab, we need to include a `gitlab-ci.yml` in our base directory. In GitLab settings you can change the name of the file that GitLab's CI/CD runner looks for, but this is the default file name. 
+
+The last line of the file runs tests using special settings file (`ci.py`) that specifies the correct database to use. 
+
+Look for other example of `.gitlab-ci.yml`. 
