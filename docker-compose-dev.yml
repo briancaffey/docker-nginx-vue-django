@@ -47,6 +47,9 @@ services:
     #       bash -c '
     #       cd frontend &&
     #       npm run serve'
+
+    extra_hosts:
+      - "*.dryden.com:127.0.0.1"
     volumes:
       - ./frontend:/app/frontend:ro
     ports:

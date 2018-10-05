@@ -1,5 +1,10 @@
 # TODO 
 
+
+- Subdomains for local development
+
+https://stackoverflow.com/questions/26564961/how-to-set-up-local-subdomains-for-node-js-app
+
 - Implement subdomain routing
 
 ```
