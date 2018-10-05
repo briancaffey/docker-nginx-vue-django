@@ -13,4 +13,5 @@ urlpatterns = [
 
     path('docs/', views.DocumentCreate.as_view(), name='create_doc'),
     path('docs/all/', views.DocumentListView.as_view(), name='list_doc'),
+    path('random/', views.random_nubers, name='random_numbers'),
 ]
