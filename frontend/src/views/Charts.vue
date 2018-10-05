@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="chart-container">
+    <div v-for="(a, n) in 2" :key="n" class="chart-container">
       <highcharts :options="chartOptions"/>
     </div>
   </div>

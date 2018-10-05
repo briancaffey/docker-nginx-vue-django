@@ -1,9 +1,24 @@
+# TODO 
+
+- Implement subdomain routing
+
+```
+'/': {
+    component: function() {
+      var reg = new RegExp("www|sitename|test|localhost:8000");
+      var parts = window.location.host.split(".");
+      return reg.test(parts[0]) ? require('./views/home') : require('./views/subdomain');
+    }()
+  },
+```
+
+
 # Architecture for a containerized web application
 
 ## High-level overview
 
 - docker and docker-compose for containerization
-- VueJS (generated with presets from `vue ui`, plus additional packages from `npm`)
+- VueJS (generated with presets from `vue ui`, plus additional `npm` packages)
 - Django, Django REST Framework, on a Python 3.6 base image
 - JSON Web Tokens for authentication and permission control to Django REST API
 - gunicorn (Python WSGI HTTP Server for UNIX)
@@ -15,9 +30,13 @@
 - Node.js (for local dev server with hot reloading)
 - elastic search (ELK stack)
 
-## Local development
+## Local Machine Setup
 
-Install docker and docker-compose. Run `docker run hello-world` to make sure that docker is running correctly. Don't run docker as root, add yourself to the docker group and reboot, this should fix any permission errors if you have them.
+From this point, I'll start with a fresh installation of Ubuntu 16.04. 
+
+#Install docker and docker-compose
+
+Run `docker run hello-world` to make sure that docker is running correctly. Don't run docker as root, and be sure to add yourself to the docker group and reboot, this should fix any permission errors if you have them.
 
 There are two ways to run the app locally: 
 
@@ -94,11 +113,8 @@ I think the volume should be read only? Docker is creating root-owned `*.pyc` fi
 - axios 
 - fontawesome
 - highcharts
-
 - tables libraries
-- 
-
-
+- bootstrap
 
 
 ---
