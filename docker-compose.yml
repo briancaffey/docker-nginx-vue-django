@@ -15,6 +15,8 @@ services:
       gunicorn backend.wsgi -b 0.0.0.0:8000'
     volumes:
       - .:/code
+    env_file:
+      - config/web/web-variables.env
     depends_on:
       - db
     networks: 

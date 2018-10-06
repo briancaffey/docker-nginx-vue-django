@@ -14,6 +14,15 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/subdomain',
+      name: 'home',
+      component: () => {
+        const reg = new RegExp('www|sitename|test|localhost:8000');
+        const parts = window.location.host.split('.');
+        return reg.test(parts[0]) ? import('./views/Home') : import('./views/Charts');
+      },
+    },
+    {
       path: '/charts',
       name: 'charts',
       component: () => import(/* webpackChunkName: "charts" */ './views/Charts.vue'),
