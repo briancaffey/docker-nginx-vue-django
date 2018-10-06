@@ -1,5 +1,8 @@
 # TODO 
 
+
+- Self signed certificates for local development
+- https://medium.com/@oliver.zampieri/self-signed-ssl-reverse-proxy-with-docker-dbfc78c05b41
 - https://docs.gitlab.com/ce/ci/yaml/#coverage
 - Subdomains for local development
 - Authentication
