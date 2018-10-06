@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div v-for="(a, n) in 2" :key="n" class="chart-container">
+    <div v-for="(a, n) in 4" :key="n" class="chart-container">
       <highcharts :options="chartOptions"/>
     </div>
   </div>
@@ -11,48 +11,59 @@ export default {
   name: 'Documents',
   data() {
     return {
-      legend: {
-        navigation: {
-          activeColor: '#fff',
-        },
-        itemStyle: {
-          color: '#fff',
-        },
-      },
-      labels: {
-        style: {
-          color: '#ff',
-        },
-      },
       chartOptions: {
-        borderWidth: 0,
         credits: {
           enabled: false,
         },
+        legend: {
+          itemStyle: {
+              color: '#fff'
+          },
+          itemHoverStyle: {
+              color: '#fff'
+          },
+          itemHiddenStyle: {
+              color: '#000'
+          },
+        },
+        borderWidth: 5,
         title: {
           style: {
             color: '#fff',
           },
         },
-        chart: {
-          xAxis: {
-            labels: {
-              style: {
-                color: '#fff',
-              },
+        yAxis: {
+          labels: {
+            style: {
+              color: '#fff',
             },
           },
-          type: 'bar',
+          title: {
+            style: {
+              color: '#fff',
+            },
+          },
+        },
+        xAxis: {
+          labels: {
+            style: {
+              color: '#fff',
+            },
+          },
+        },
+        chart: {
+          type: 'column',
           backgroundColor: '#2c3e50',
         },
         colors: ['#910000', '#1aadce', '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'],
         series: [
           {
             data: this.fetchData(),
-            name: 'Hmm',
+            borderColor: '#2c3e50',
           },
           {
             data: this.fetchData(),
+            borderColor: '#2c3e50',
           },
         ],
       },
@@ -60,7 +71,8 @@ export default {
   },
   methods: {
     fetchData() {
-      return [1, 2, 3];
+      return Array.from({length: 6}, () => Math.floor(Math.random() * 40));
+;
     },
   },
   mounted() {
