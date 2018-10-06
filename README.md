@@ -28,6 +28,18 @@ https://stackoverflow.com/questions/26564961/how-to-set-up-local-subdomains-for-
   },
 ```
 
+- implement ssl
+
+```
+    listen 443;
+    ssl on;
+    ssl_certificate /etc/nginx/conf.d/cert.pem;
+    ssl_certificate_key /etc/nginx/conf.d/key.pem;
+    location / {
+        proxy_pass http://172.17.0.1:4000;
+    }
+```
+
 
 # Architecture for a containerized web application
 
