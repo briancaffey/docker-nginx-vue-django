@@ -30,7 +30,7 @@ export default {
   computed: {
     buttonCanClick() {
       return false;
-    }
+    },
   },
   methods: {
     login() {
