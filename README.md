@@ -1,11 +1,19 @@
 # TODO 
 
-
+- https://docs.gitlab.com/ce/ci/yaml/#coverage
 - Subdomains for local development
+- Authentication
+- Vue Site Template Testing
+- Make a new sample vue project with docker for tutorial
+- Layouts
+    - We can define certain paths that correspond to various components
+    - Use v-if with `activeTab`, save things in state so you can move between tabs and come back to saved work.
+    - 
 
 https://stackoverflow.com/questions/26564961/how-to-set-up-local-subdomains-for-node-js-app
 
-- Implement subdomain routing
+- Implement subdomain routing, 
+- 
 
 ```
 '/': {
