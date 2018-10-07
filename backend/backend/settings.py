@@ -147,16 +147,24 @@ STATICFILES_URL = os.path.join(BASE_DIR, 'static')
 
 
 # Collects static files to S3 and saves media uploads to S3 bucket
-
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_CUSTOM_DOMAIN = os.environ['AWS_S3_CUSTOM_DOMAIN'] or None
-AWS_LOCATION = 'static'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION) or None
+
+
+AWS_S3_CUSTOM_DOMAIN = '?'
+STATIC_URL = '?'
+AWS_ACCESS_KEY_ID = '?'
+AWS_SECRET_ACCESS_KEY = '?'
 DEFAULT_FILE_STORAGE = 'backend.storage_backends.MediaStorage'
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] or None
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] or None
+try:
+    AWS_S3_CUSTOM_DOMAIN = os.environ['AWS_S3_CUSTOM_DOMAIN']
+    AWS_LOCATION = 'static'
+    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION) or None
 
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] or None
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] or None
+except KeyError:
+    print('Could not set settings from environment variables.')
 
 try:
     from .settings_sensitive import *
